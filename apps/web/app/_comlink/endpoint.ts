@@ -6,17 +6,9 @@ const listeners: any[] = [];
 
 export const webViewRpcEndpoint: Endpoint = {
 	addEventListener: (_, listener, ...args) => {
-		if (typeof document === "undefined") {
-			return;
-		}
-
 		document.addEventListener("ReactNativeWebViewCallback", listener, ...args);
 	},
 	removeEventListener: (_, listener) => {
-		if (typeof document === "undefined") {
-			return;
-		}
-
 		document.removeEventListener("ReactNativeWebViewCallback", listener);
 	},
 	postMessage: (data) => {

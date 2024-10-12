@@ -4,11 +4,11 @@ import * as Comlink from "comlink";
 import { webViewRpcEndpoint } from "../_comlink/endpoint";
 
 const IsClicked = () => {
-	const [isClicked, setIsClicked] = useState(false);
+	const [text, setText] = useState("");
 	const webRpcs = {
-		async changeWebText() {
+		async changeWebText(title: string) {
 			return await new Promise<void>((resolve) => {
-				setIsClicked((prev) => !prev);
+				setText(title);
 				resolve();
 			});
 		},
@@ -16,7 +16,7 @@ const IsClicked = () => {
 
 	Comlink.expose(webRpcs, webViewRpcEndpoint);
 
-	return <div>{isClicked ? "클릭됨" : "아님"}</div>;
+	return <div>{text}</div>;
 };
 
 export default IsClicked;
