@@ -1,5 +1,7 @@
 import Buttont from "./_component/Buttont";
+import Children from "./_component/Children";
 import IsClicked from "./_component/IsClicked";
+import Wrapper from "./_component/Wrapper";
 
 declare global {
 	interface Window {
@@ -15,6 +17,9 @@ export default function Web() {
 			<h1>Web</h1>
 			<Buttont />
 			<IsClicked />
+			<Wrapper>
+				<Children />
+			</Wrapper>
 		</div>
 	);
 }
