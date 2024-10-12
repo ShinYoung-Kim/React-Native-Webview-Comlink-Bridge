@@ -3,13 +3,14 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev -H 172.30.1.88",
+		"dev": "next dev -H 192.168.0.24",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint"
 	},
 	"dependencies": {
 		"@repo/ui": "workspace:*",
+		"comlink": "^4.4.1",
 		"next": "^14.0.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
