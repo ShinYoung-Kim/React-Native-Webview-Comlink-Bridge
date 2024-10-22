@@ -23,6 +23,9 @@ importers:
 
   apps/app:
     dependencies:
+      '@react-native-webview-comlink-bridge/app':
+        specifier: workspace:*
+        version: link:../../packages/app
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -133,6 +136,28 @@ importers:
       eslint-config-next:
         specifier: 14.0.4
         version: 14.0.4(eslint@8.57.1)(typescript@5.6.3)
+      typescript:
+        specifier: ^5.3.3
+        version: 5.6.3
+
+  packages/app:
+    dependencies:
+      comlink:
+        specifier: ^4.4.1
+        version: 4.4.1
+      react-native-webview:
+        specifier: ^13.12.2
+        version: 13.12.3(react-native@0.75.2)(react@18.3.1)
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: ^22.7.5
+        version: 22.7.8
+      tsup:
+        specifier: ^8.3.0
+        version: 8.3.0(@microsoft/api-extractor@7.47.11)(typescript@5.6.3)
       typescript:
         specifier: ^5.3.3
         version: 5.6.3

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import * as Comlink from "comlink";
-import { webViewRpcEndpoint } from "../_comlink/endpoint";
+import { rpcs } from "@react-native-webview-comlink-bridge/web";
 
 const Children = () => {
+	const { exposeClientRPC } = rpcs();
 	const [time, setTime] = useState(0);
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -27,7 +27,9 @@ const Children = () => {
 		},
 	};
 
-	Comlink.expose(webRpcs, webViewRpcEndpoint);
+	useEffect(() => {
+		exposeClientRPC(webRpcs);
+	}, [webRpcs]);
 
 	return (
 		<div>

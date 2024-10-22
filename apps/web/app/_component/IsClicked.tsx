@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
-import * as Comlink from "comlink";
-import { webViewRpcEndpoint } from "../_comlink/endpoint";
+import { useEffect, useState } from "react";
+import { rpcs } from "@react-native-webview-comlink-bridge/web";
 
 const IsClicked = () => {
+	const { exposeClientRPC } = rpcs();
 	const [text, setText] = useState("");
 	const webRpcs = {
 		async changeWebText(title: string) {
@@ -14,7 +14,9 @@ const IsClicked = () => {
 		},
 	};
 
-	Comlink.expose(webRpcs, webViewRpcEndpoint);
+	useEffect(() => {
+		exposeClientRPC(webRpcs);
+	}, [webRpcs]);
 
 	return <div>{text}</div>;
 };

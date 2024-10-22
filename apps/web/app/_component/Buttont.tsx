@@ -1,10 +1,11 @@
 "use client";
-
-import { rpc } from "../_comlink/rpcs";
+import { rpcs } from "@react-native-webview-comlink-bridge/web";
 
 const Buttont = () => {
+	const { remoteRPC } = rpcs();
+
 	const onClickButton = async () => {
-		await rpc.confirmAlert("app alert", "app alert 모양인가");
+		await remoteRPC.confirmAlert("app alert", "app alert 모양인가");
 	};
 
 	return <button onClick={onClickButton}>앱 alert 호출</button>;
